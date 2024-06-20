@@ -698,7 +698,7 @@ osmtogeojson = function( data, options, featureCallback ) {
         }
         var outer_count = 0;
         for (var j=0;j<rels[i].members.length;j++)
-          if (rels[i].members[j].role == "outer")
+          if ((rels[i].members[j].role == "outer") || (rels[i].members[j].role == ""))
             outer_count++;
           else if (options.verbose && rels[i].members[j].role != "inner")
             console.warn('Multipolygon',rels[i].type+'/'+rels[i].id,'member',rels[i].members[j].type+'/'+rels[i].members[j].ref,'ignored because it has an invalid role: "' + rels[i].members[j].role + '"');
